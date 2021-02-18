@@ -182,6 +182,7 @@ public class GitHubProvider implements Provider<GithubPluginSettings> {
     private GitHub connectToPublicGitHub(GithubPluginSettings pluginSettings) throws IOException {
         if (pluginSettings.containsUsernameAndPassword()) {
             LOGGER.debug("Create GitHub connection to public GitHub using username and password");
+            // deprecated
             return GitHub.connectUsingPassword(pluginSettings.getUsername(), pluginSettings.getPassword());
         } else if (pluginSettings.containsOAuthToken()) {
             LOGGER.debug("Create GitHub connection to public GitHub with token");
@@ -200,6 +201,7 @@ public class GitHubProvider implements Provider<GithubPluginSettings> {
             );
         } else if (pluginSettings.containsOAuthToken()) {
             LOGGER.debug("Create GitHub connection to enterprise GitHub with token");
+            // deprecated
             return GitHub.connectToEnterprise(pluginSettings.getApiUrl(), pluginSettings.getOauthToken());
         }
         return null;
