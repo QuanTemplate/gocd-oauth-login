@@ -1,11 +1,11 @@
-rootProject.name = 'gocd-oauth-login-qt'
+rootProject.name = 'gocd-oauth-login'
 
 include ':base'
-include ':github-oauth-login-qt'
-include ':google-oauth-login-qt'
-include ':gitlab-oauth-login-qt'
+include ':github-oauth-login'
+include ':google-oauth-login'
+include ':gitlab-oauth-login'
 
 project(':base').projectDir = "$rootDir/base" as File
-project(':github-oauth-login-qt').projectDir = "$rootDir/github" as File
-project(':google-oauth-login-qt').projectDir = "$rootDir/google" as File
-project(':gitlab-oauth-login-qt').projectDir = "$rootDir/gitlab" as File
+project(':github-oauth-login').projectDir = "$rootDir/github" as File
+project(':google-oauth-login').projectDir = "$rootDir/google" as File
+project(':gitlab-oauth-login').projectDir = "$rootDir/gitlab" as File
