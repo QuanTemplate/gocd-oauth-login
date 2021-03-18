@@ -108,21 +108,20 @@ subprojects {
       into "/"
     }
 
-    doFirst {
-      if (project.path != ':base') {
-        from(zipTree({ rootProject.findProject(':base').jar.archivePath })) {
-          into '/'
-        }
+    if (project.path != ':base') {
+      from(zipTree({ rootProject.findProject(':base').jar.archivePath })) {
+        into '/'
+      }
 
-        from({project.configurations.compile}) {
-          into "lib/"
-          exclude "${rootProject.findProject(':base').jar.archivePath}"
-        }
+      from({project.configurations.compile}) {
+        into "lib/"
+        exclude "${rootProject.findProject(':base').jar.archivePath}"
+      }
 
-        from({ rootProject.findProject(':base').project.configurations.compile }) {
-          into "lib/"
-        }
+      from({ rootProject.findProject(':base').project.configurations.compile }) {
+        into "lib/"
       }
     }
+    
   }
 }
